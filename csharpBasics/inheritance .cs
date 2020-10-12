@@ -7,7 +7,7 @@ public abstract class Shape
     public abstract double GetPerimeter();
 
 
-    public void printDetails()
+    public virtual void printDetails() // virtual key word is used to tell child class to change this function
 
     {
         Console.WriteLine("printing details for shape ....");
@@ -15,8 +15,13 @@ public abstract class Shape
 
 }
 
-public class Square :  Shape 
-{
+public class Square :  Rectangle 
+{       
+    // base in used to access the base class
+    public Square(double s): base(s,s)
+    {
+        
+    }
     public double Side{get; set;}
 
     public override double GetArea() => Side * Side ;
@@ -27,13 +32,24 @@ public class Square :  Shape
 
 public class Rectangle :  Shape 
 {
+    public Rectangle(double l, double b)
+    {
+        this.length=l;
+        this.Breadth=b;
+    }
     public double length{get; set;}
-    public double breadth{get; set;}
+    public double Breadth{get; set;}
 
-    public override double GetArea() => length* breadth  ;
+    public override double GetArea() => length* Breadth  ;
 
-    public override double GetPerimeter() => length  + breadth ;
-   
+    public override double GetPerimeter() => length  + Breadth ;
+
+    public override void printDetails()
+    {
+        Console.WriteLine("printing details for Rectangle"); // $ sign is used as string interpolation technique
+        Console.WriteLine($"Length:{length}, Breadth:{Breadth}");
+        Console.WriteLine($"area:{this.GetArea()} , perimeter:{this.GetPerimeter()}");
+    }
 }
 
 public class Circle:  Shape 

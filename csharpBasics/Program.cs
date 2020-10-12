@@ -37,8 +37,40 @@ class Program
 
         // generic function 
 
-        Calculator calculator = new Calculator;
-        var x =calculator.Sum<int>(2,3);
+        // Calculator calculator = new Calculator;
+        // var x =calculator.Sum<int>(2,3);
+
+
+
+        // inheritance example
+        Rectangle rectangle = new Rectangle(3, 3);
+
+        rectangle.length = 2.3;
+        rectangle.Breadth = 4.4;
+        var result = rectangle.GetArea();
+
+        // object initializer 
+        Rectangle a = new Rectangle(3.3, 23.4)
+        {
+            length = 4.5
+
+        };
+
+        //inheritane example with
+        Rectangle r = new Rectangle(3.4, 3.4);
+
+        var rArea = r.GetArea();
+        var rparameter = r.GetPerimeter();
+
+        Square s = new Square(3.3);
+        var sperimeter = s.GetPerimeter();
+
+
+        Shape ee = new Rectangle(3.4,3.1); // we can use base class to crete inherited object.
+
+            ee.printDetails();
+
+
 
 
 
