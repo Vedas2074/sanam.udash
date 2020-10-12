@@ -61,6 +61,10 @@ class Program
 
         var rArea = r.GetArea();
         var rparameter = r.GetPerimeter();
+        var diagonal= r.GETDiagonalLength(); // interface used by the object of the recatangle class 
+
+        
+      
 
         Square s = new Square(3.3);
         var sperimeter = s.GetPerimeter();
@@ -70,6 +74,8 @@ class Program
 
             ee.printDetails();
 
+            // ee.GETDiagonalLength() // cannot use by this object because it is created using shape class which donot use interface
+            
 
 
 

@@ -14,8 +14,13 @@ public abstract class Shape
     }
 
 }
+    public interface IDiagonalComputable
+    {
+        public double GETDiagonalLength();
+       
+    }
 
-public class Square :  Rectangle 
+public class Square :  Rectangle
 {       
     // base in used to access the base class
     public Square(double s): base(s,s)
@@ -26,11 +31,15 @@ public class Square :  Rectangle
 
     public override double GetArea() => Side * Side ;
 
+    
+   
+
     public override double GetPerimeter() => Side + Side;
    
 }
 
-public class Rectangle :  Shape 
+
+public class Rectangle :  Shape,IDiagonalComputable
 {
     public Rectangle(double l, double b)
     {
@@ -41,6 +50,9 @@ public class Rectangle :  Shape
     public double Breadth{get; set;}
 
     public override double GetArea() => length* Breadth  ;
+
+public double GETDiagonalLength()=>Math.Sqrt(length*length+Breadth*Breadth);
+   
 
     public override double GetPerimeter() => length  + Breadth ;
 
