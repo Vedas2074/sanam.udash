@@ -1,16 +1,17 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
 }
+<h2>this is the body content of the index</h2>
+<p>
+    here % is equal to atherat <br>
+    %RenderBody() this method used to render the body in layout and <br>
+    %{
+    Layout = "_Layout";
+    } this is used show where the content is
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-@{
-    int x = 40; // razor view engine : means we can write both c# code and html in same file 
-    string y= "hello sanam";
-}
-<h2>
-    @x
-   @y
-</h2>
+</p>
+<p>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat ut dolorum perspiciatis. Cupiditate
+    perferendis, porro cum ea, voluptatibus eaque, nemo expedita quas rerum nobis impedit aspernatur unde incidunt
+    hic fugiat?
+</p>
