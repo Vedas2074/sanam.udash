@@ -46,7 +46,7 @@ namespace EmployeeManagement
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
+            app.UseEndpoints(endpoints =>   // this gives the url pattern in the server 
             {
                 endpoints.MapControllerRoute(
                     name: "default",
