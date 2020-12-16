@@ -1,5 +1,7 @@
 @model Employee 
-
+@{
+  ViewData["Title"] = "Detail of Employee";
+}
 <h2> Employee Details </h2>
 <ul class="list-group">
   <li class="list-group-item active">Detail of the Current Employe</li>
@@ -8,5 +10,6 @@
   <li class="list-group-item">Gender : @Model.Gender</li>
   <li class="list-group-item">Salary : @Model.Salary</li>
 </ul>
+<button type="button" class="btn btn-dark" > <a href="/employee/index/"style="color:white">Back to Employee</a></button>
 
 

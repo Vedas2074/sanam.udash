@@ -22,5 +22,10 @@ public class  EmployeeController : Controller
                         // if there is no parameter it will search same name as action name 
     
     }
+    public IActionResult addEmployee()
+    {
+        return View();
+    }
+   
 }
 
