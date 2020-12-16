@@ -12,8 +12,8 @@ public class  EmployeeController : Controller
     }
 
     // another action added with name  detail
-
-    public IActionResult Detail(string firstName)
+    //  here the value of the argument is taken through get method because by default the action is in http get method 
+    public IActionResult Detail(string firstName)  
     {
             var Employees = Employee.GetEmployees();
              var employee=Employees.FirstOrDefault(x=>x.firstname==firstName);
@@ -22,10 +22,17 @@ public class  EmployeeController : Controller
                         // if there is no parameter it will search same name as action name 
     
     }
-    public IActionResult addEmployee()
+    public IActionResult addEmployee() // default http method request or respose is get 
     {
         return View();
     }
+
+    [HttpPost]   // setting the upcomming action request method to post method 
+   
+    public string addEmployee([FromForm]Employee employee)
+    {
+            return " Record Saved";
+    } 
    
 }
 

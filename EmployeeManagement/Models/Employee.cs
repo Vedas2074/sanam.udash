@@ -1,21 +1,28 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 public class Employee
-{
+{   [Required] // client side validation in form fill up 
+    [Display(Name = "First Name")] // yesla garda firsname display huda xuteyara aaux i .e data anotations
     public string firstname {get; set;}
-
+            
+             [Required]
+             [Display(Name = "Sur Name")]
     public string SurName {get; set;}
-
+             
     public string Address { get; set;}
+            
+    public char? Gender {get; set;} = 'M'; // here ? will make the gender parameter nullable in validation process
+            
+    public double? Salary {get; set;} // salary is nullable
 
-    public char Gender {get; set;} = 'M';
+    public Employee()
+    {
 
-    public double Salary {get; set;}
-
-
-    public Employee(string fname,string lname, string Address, char gender, double salary)
+    }
+    public Employee(string fname ="sanam",string lname= "Udash", string Address= "Matatritha", char gender= 'M', double salary = 10)
     {
         this.firstname = fname;
         this.SurName = lname;
