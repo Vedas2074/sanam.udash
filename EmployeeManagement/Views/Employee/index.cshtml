@@ -1,4 +1,4 @@
-@model List<Person>
+@model List<Employee>
 
 
 <h2>All Employee</h2>
@@ -20,7 +20,7 @@
             {
                 <tr>
                     <th scope="row">@count</th>
-                    <td>@employee.firstname</td>
+                    <td> <a href="/Employee/Detail?firstName=@employee.firstname"> @employee.firstname </a></td>
                     <td>@employee.SurName</td>
                     <td>@employee.Address</td>
                     <td>@employee.Gender</td>

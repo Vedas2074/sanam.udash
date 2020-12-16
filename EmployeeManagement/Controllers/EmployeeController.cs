@@ -1,25 +1,26 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using System.Linq;
 public class  EmployeeController : Controller
 {
+    // this is action for website
     public IActionResult index()  // return type is actionresult whict is generic type
     {                               // name of the method must be same as view name 
-        
-        Person emp1 = new Person("Sanam", "Udash", "Matatritha", 'M', 2000);
-        Person emp2 = new Person("Sunil", "Kunwar", "Dhading", 'M', 2000);
-        Person emp3 = new Person("Susan", "Shrestha", "Chhapali", 'M', 2000);
-        Person emp4 = new Person("Raman", "Thapa", "Mahadevthan", 'M', 2000);
-        Person emp5 = new Person("Amrit", "Budha", "Satungal", 'M', 2000);
-        Person emp6 = new Person("Bikash", "Fadera", "Highvision", 'M', 2000);
-
-           List<Person> employees = new List<Person>() {emp1, emp2, emp3 , emp4 , emp5 , emp6 };
-
-       
-
-
-
+        var employees = Employee.GetEmployees(); // calling the getEmployees method of public class Employee 
         return View(employees);
         
+    }
+
+    // another action added with name  detail
+
+    public IActionResult Detail(string firstName)
+    {
+            var Employees = Employee.GetEmployees();
+             var employee=Employees.FirstOrDefault(x=>x.firstname==firstName);
+
+        return View(employee); // mvc prodgram will search for the cshtml file same name as view() method parameter in views folder under the same name as controller 
+                        // if there is no parameter it will search same name as action name 
+    
     }
 }
 
