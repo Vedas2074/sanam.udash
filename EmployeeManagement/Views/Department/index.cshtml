@@ -1,0 +1,30 @@
+@model List<Department>
+
+<h2>Name of the Department and Department Head</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Department Name</th>
+            <th scope="col">Department Head Name</th>
+            <th scope="col"> Employee Id</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var x in Model)
+            {
+                <tr>
+                    <th scope="row">@x.id</th>
+                    <td>@x.DName</td>
+                    <td>@x.DHead</td>
+                    <td>@x.EmpId</td>
+                </tr>
+            }
+
+        }
+
+
+    </tbody>
+</table>
