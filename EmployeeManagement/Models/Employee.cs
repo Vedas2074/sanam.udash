@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 public class Employee
-{   [Required] // client side validation in form fill up 
+{     [Key]   // this will give ef migration that id is primary key 
+    public int Id {get; set;} 
+    
+    [Required] // client side validation in form fill up 
     [Display(Name = "First Name")] // yesla garda firsname display huda xuteyara aaux i .e data anotations
     public string firstname {get; set;}
             
