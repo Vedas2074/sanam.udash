@@ -1,12 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using EmployeeManagement.data
 public class  EmployeeController : Controller
 {
     // this is action for website
-    public IActionResult index()  // return type is actionresult whict is generic type
-    {                               // name of the method must be same as view name 
-        var employees = Employee.GetEmployees(); // calling the getEmployees method of public class Employee 
+    public IActionResult index()                   
+    {                                            
+        var db = new EMSContext();     // creating the database instance 
+        var employees = db.Employees.ToList();       // Retriving all the data from Employees table from database 
         return View(employees);
         
     }

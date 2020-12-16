@@ -3,6 +3,10 @@ namespace EmployeeManagement.data
 {
 public class EMSContext : DbContext  // DbContext represent the data base 
 {
+        public EMSContext()
+        {
+          
+        }
         public EMSContext(DbContextOptions<EMSContext> options) : base(options)
         {
 
