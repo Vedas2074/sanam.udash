@@ -44,16 +44,34 @@ public class  EmployeeController : Controller
            return RedirectToAction("Index");
     }
     [HttpGet]
-    public string DeleteEmp()
+    public IActionResult DeleteEmp(string firstName) // here parameter firstName is obtain thorough url
     {
-            return "deleted";
+            var employees = db.Employees.ToList();
+            var employee=employees.FirstOrDefault(x=>x.firstname==firstName);
+                // delete query
+               return RedirectToAction("Index");
+
     }
 
-    [HttpGet] // type of the action is Get because the url content the informatin about first name 
-      public string UpdateEmp()
+      // for update contex
+      public IActionResult UpdateEmp(string firstName)
     {
-            return "updated";
+          var employees = db.Employees.ToList(); 
+             var employee=employees.FirstOrDefault(x=>x.firstname==firstName);
+
+            return View(employee);
     } 
+    [HttpPost]
+    public IActionResult UpdateEmp([FromForm]Employee employee)
+    {
+            db.Employees.Attach(employee);
+            db.Employees.Update(employee);  // update equery
+            db.SaveChanges();
+
+            
+         
+        return RedirectToAction("Index");
+    }
 
    
 }
