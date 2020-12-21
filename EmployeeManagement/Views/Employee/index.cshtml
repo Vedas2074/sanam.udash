@@ -14,6 +14,7 @@
             <th scope="col">Address</th>
             <th scope="col">Gender</th>
             <th scope="col">Salary</th>
+            <th scope="col">Action</th>
         </tr>
     </thead>
     <tbody>
@@ -28,6 +29,12 @@
                     <td>@employee.Address</td>
                     <td>@employee.Gender</td>
                     <td>@employee.Salary</td>
+                    <td>
+                        
+                        <a class="btn btn-danger"  href="/Employee/DeleteEmp?firstName=@employee.firstname" role="button">Delete </a>
+                        <a class="btn btn-primary"  href="/Employee/UpdateEmp?firstName=@employee.firstname" role="button">Update </a>
+                    
+                    </td>
 
                 </tr>
               count++;

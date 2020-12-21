@@ -1,13 +1,19 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using EmployeeManagement.data
+using EmployeeManagement.data;
 public class  EmployeeController : Controller
 {
+        private readonly EMSContext db;    
+        public EmployeeController(EMSContext _db)
+        {
+            db = _db;
+        }
+
     // this is action for website
     public IActionResult index()                   
     {                                            
-        var db = new EMSContext();     // creating the database instance 
+        // var db = new EMSContext();     // creating the database instance 
         var employees = db.Employees.ToList();       // Retriving all the data from Employees table from database 
         return View(employees);
         
@@ -17,8 +23,8 @@ public class  EmployeeController : Controller
     //  here the value of the argument is taken through get method because by default the action is in http get method 
     public IActionResult Detail(string firstName)  
     {
-            var Employees = Employee.GetEmployees();
-             var employee=Employees.FirstOrDefault(x=>x.firstname==firstName);
+             var employees = db.Employees.ToList(); 
+             var employee=employees.FirstOrDefault(x=>x.firstname==firstName);
 
         return View(employee); // mvc prodgram will search for the cshtml file same name as view() method parameter in views folder under the same name as controller 
                         // if there is no parameter it will search same name as action name 
@@ -31,10 +37,24 @@ public class  EmployeeController : Controller
 
     [HttpPost]   // setting the upcomming action request method to post method 
    
-    public string addEmployee([FromForm]Employee employee)
+    public IActionResult addEmployee([FromForm]Employee employee)
     {
-            return " Record Saved";
+           db.Employees.Add(employee);
+           db.SaveChanges();
+           return RedirectToAction("Index");
+    }
+    [HttpGet]
+    public string DeleteEmp()
+    {
+            return "deleted";
+    }
+
+    [HttpGet] // type of the action is Get because the url content the informatin about first name 
+      public string UpdateEmp()
+    {
+            return "updated";
     } 
+
    
 }
 
