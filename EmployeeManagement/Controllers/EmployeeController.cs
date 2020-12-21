@@ -21,10 +21,10 @@ public class  EmployeeController : Controller
 
     // another action added with name  detail
     //  here the value of the argument is taken through get method because by default the action is in http get method 
-    public IActionResult Detail(string firstName)  
+    public IActionResult Detail(int id)  
     {
              var employees = db.Employees.ToList(); 
-             var employee=employees.FirstOrDefault(x=>x.firstname==firstName);
+             var employee=employees.FirstOrDefault(x=>x.Id==id);
 
         return View(employee); // mvc prodgram will search for the cshtml file same name as view() method parameter in views folder under the same name as controller 
                         // if there is no parameter it will search same name as action name 
@@ -44,20 +44,24 @@ public class  EmployeeController : Controller
            return RedirectToAction("Index");
     }
     [HttpGet]
-    public IActionResult DeleteEmp(string firstName) // here parameter firstName is obtain thorough url
+    public IActionResult DeleteEmp(int id) // here parameter firstName is obtain thorough url
     {
             var employees = db.Employees.ToList();
-            var employee=employees.FirstOrDefault(x=>x.firstname==firstName);
+            var employee=employees.FirstOrDefault(x=>x.Id==id);
                 // delete query
+                db.Employees.Remove(employee);
+                db.SaveChanges();
                return RedirectToAction("Index");
 
     }
 
+  
+
       // for update contex
-      public IActionResult UpdateEmp(string firstName)
+      public IActionResult UpdateEmp(int id)
     {
           var employees = db.Employees.ToList(); 
-             var employee=employees.FirstOrDefault(x=>x.firstname==firstName);
+             var employee=employees.FirstOrDefault(x=>x.Id==id);
 
             return View(employee);
     } 

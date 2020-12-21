@@ -24,15 +24,15 @@
             {
                 <tr>
                     <th scope="row">@count</th>
-                    <td> <a href="/Employee/Detail?firstName=@employee.firstname"> @employee.firstname </a></td>
+                    <td> <a href="/Employee/Detail?id=@employee.Id"> @employee.firstname </a></td>
                     <td>@employee.SurName</td>
                     <td>@employee.Address</td>
                     <td>@employee.Gender</td>
                     <td>@employee.Salary</td>
                     <td>
                         
-                        <a class="btn btn-danger"  href="/Employee/DeleteEmp?firstName=@employee.firstname" role="button">Delete </a>
-                        <a class="btn btn-primary"  href="/Employee/UpdateEmp?firstName=@employee.firstname" role="button">Update </a>
+                        <a class="btn btn-danger"  href="/Employee/DeleteEmp?id=@employee.Id" role="button">Delete </a>
+                        <a class="btn btn-primary"  href="/Employee/UpdateEmp?id=@employee.Id" role="button">Update </a>
                     
                     </td>
 

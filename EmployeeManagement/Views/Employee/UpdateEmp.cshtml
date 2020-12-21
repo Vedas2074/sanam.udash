@@ -11,8 +11,10 @@
 <form asp-controller="Employee" asp-action="UpdateEmp" method="POST">
   <div class="form-group">
       <input type="hidden" asp-for="Id">
+
+      <!-- asp-for is reponsible for the data show in the value box -->
     <label asp-for="firstname"></label>  <!-- asp-for is tag of asp for -->
-    <input type="text" class="form-control" asp-for="firstname"   placeholder="Enter Fitst Name">
+    <input type="text" class="form-control" asp-for="firstname"   placeholder="Enter Fitst Name"> 
     <span class="text-danger" asp-validation-for="firstname"></span>
   </div>
     <div class="form-group">
