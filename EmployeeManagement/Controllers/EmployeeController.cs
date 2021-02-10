@@ -4,7 +4,8 @@ using System.Linq;
 using EmployeeManagement.data;
 public class  EmployeeController : Controller
 {
-        private readonly EMSContext db;    
+    // creating database instance 
+        private readonly EMSContext db;     
         public EmployeeController(EMSContext _db)
         {
             db = _db;
