@@ -8,8 +8,15 @@ public class StateManagementController: Controller
     public IActionResult FirstPage()
     {
         // server side 
+            // 1. temp data 
+                // setting the temp data using inbuilt array 
+            TempData["xyz"] = "this is temp data";
+                // data bindig weakly type with out model binding 
+            ViewData["x"]= 123;
+            ViewBag.Age = 45;
+            
 
-        
+
 
         // client side 
             // 1) cookie 
@@ -36,7 +43,13 @@ public class StateManagementController: Controller
         // 2. Query strings : string in url 
         Response.Cookies.Append("user1",name);
        var user =  Request.Cookies["user1"];
+        // reading the temp data it will not avaiable in another method after reading in one method 
+        var tempRead = TempData["xyz"];
+        
+        
         return View("SecondPage",user);
+
+
     }
     [HttpPost]
     // getting id from another page in hidden form 

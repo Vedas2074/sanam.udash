@@ -3,4 +3,7 @@
 <h1>this is second page in statemanagement</h1>
 
 <h3>user name : @Model</h3>
+  @* this data cannot be read by this page if it is read by hidden page and viseversa *@
 
+@TempData["xyz"]
+@ViewBag.Age
