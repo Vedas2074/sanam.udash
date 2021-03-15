@@ -14,6 +14,9 @@ public class StateManagementController: Controller
                 // data bindig weakly type with out model binding 
             ViewData["x"]= 123;
             ViewBag.Age = 45;
+            // SESSION 
+
+            HttpContext.Session.SetInt32("dob", 123);
             
 
 

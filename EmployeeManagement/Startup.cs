@@ -25,6 +25,7 @@ namespace EmployeeManagement
         public void ConfigureServices(IServiceCollection services)
         {   // configuring the database server package with sqlite server
             services.AddDbContext<EMSContext>(options => options.UseSqlite("Data Source =Ems.db"));
+            services.AddSession();
             services.AddControllersWithViews();
         }
 
@@ -43,7 +44,7 @@ namespace EmployeeManagement
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+             app.UseSession();
             app.UseRouting();
 
             app.UseAuthorization();
