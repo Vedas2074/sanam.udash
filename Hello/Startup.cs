@@ -8,12 +8,12 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
-using MVCWithAuth.Data;
+using Hello.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace MVCWithAuth
+namespace Hello
 {
     public class Startup
     {
@@ -54,7 +54,7 @@ namespace MVCWithAuth
             app.UseStaticFiles();
 
             app.UseRouting();
-        // this is important to use authentication and authorization in app
+
             app.UseAuthentication();
             app.UseAuthorization();
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MVCWithAuth.Data.Migrations
+namespace Hello.Data.Migrations
 {
     public partial class CreateIdentitySchema : Migration
     {

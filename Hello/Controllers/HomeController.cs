@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using MVCWithAuth.Models;
+using Hello.Models;
 
-namespace MVCWithAuth.Controllers
+namespace Hello.Controllers
 {
     public class HomeController : Controller
     {
@@ -17,13 +17,12 @@ namespace MVCWithAuth.Controllers
         {
             _logger = logger;
         }
-    // // authorizing the page only for admin part 
-    // [Authorize(Role = "Admin")]
+    
         public IActionResult Index()
         {
             return View();
         }
-    // [Authorize(Role = "Admin")]
+
         public IActionResult Privacy()
         {
             return View();
